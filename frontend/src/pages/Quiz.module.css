@@ -1,0 +1,30 @@
+.quizContainer {
+  padding: 20px;
+  font-family: Arial, sans-serif;
+}
+
+.quizTitle {
+  color: #333;
+}
+
+.quizForm {
+  margin-top: 10px;
+}
+
+.formGroup {
+  margin-bottom: 10px;
+}
+
+.formLabel {
+  margin-right: 10px;
+}
+
+.formInput {
+  padding: 5px;
+  font-size: 16px;
+}
+
+.submitButton {
+  padding: 5px 10px;
+  font-size: 16px;
+}

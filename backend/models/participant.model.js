@@ -1,16 +1,20 @@
-import mongoose from 'mongoose'
+import mongoose from 'mongoose';
 
 const participantSchema = new mongoose.Schema({
-    name:{
+    name: {
         type: String,
         required: true
     },
-    timeTaken:{
-        type: Number
+    startTime: {
+        type: Date,
+        required: true
+    },
+    endTime: {
+        type: Date
     }
-},{
-    timeStamps: true
-})
+}, {
+    timestamps: true
+});
 
-const Participant = mongoose.model('Participant', participantSchema)
-export default Participant
+const Participant = mongoose.model('Participant', participantSchema);
+export default Participant;
