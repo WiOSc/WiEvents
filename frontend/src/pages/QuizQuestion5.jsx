@@ -55,31 +55,33 @@ const QuizQuestion5 = () => {
   };
 
   return (
-    <div className={styles.quizContainer}>
-      <h2 className={styles.quizTitle}>Final Question</h2>
-      <p className={styles.questionText}>What is the capital of France? (Final Question)</p>
-
-      <input
-        type="text"
-        value={answer}
-        onChange={handleAnswerChange}
-        className={styles.formInput}
-        placeholder="Your answer"
-      />
-
-      <button onClick={toggleHint} className={styles.hintButton}>
-        {showHint ? "Hide Hint" : "Show Hint"}
-      </button>
-      
-      {showHint && <p className={styles.hintText}>It's also called the City of Love ❤️</p>}
-
-      {error && <p className={styles.errorText}>{error}</p>}
-
-      <button onClick={handleSubmit} className={styles.submitButton}>
-        End Event
-      </button>
-    </div>
-  );
+        <div className={styles.quizContainer}>
+          <div className={styles.quizContent}>
+          <h2 className={styles.quizTitle}>Question 5</h2>
+          <p className={styles.questionText}>What is the capital of France?</p>
+    
+          <input
+            type="text"
+            value={answer}
+            onChange={handleAnswerChange}
+            className={styles.formInput}
+            placeholder="Your answer"
+          />
+    
+          <button onClick={toggleHint} className={styles.hintButton}>
+            {showHint ? "Hide Hint" : "Show Hint"}
+          </button>
+          
+          {showHint && <p className={styles.hintText}>It's also called the City of Love ❤️</p>}
+    
+          {error && <p className={styles.errorText}>{error}</p>}
+    
+          <button onClick={handleSubmit} className={styles.submitButton}>
+            Submit
+          </button>
+          </div>
+        </div>
+      );
 };
 
 export default QuizQuestion5;

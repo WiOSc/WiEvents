@@ -26,6 +26,7 @@ const QuizQuestion1 = () => {
 
   return (
     <div className={styles.quizContainer}>
+      <div className={styles.quizContent}>
       <h2 className={styles.quizTitle}>Question 1</h2>
       <p className={styles.questionText}>What is the capital of France?</p>
 
@@ -48,6 +49,7 @@ const QuizQuestion1 = () => {
       <button onClick={handleSubmit} className={styles.submitButton}>
         Submit
       </button>
+      </div>
     </div>
   );
 };

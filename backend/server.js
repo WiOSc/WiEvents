@@ -2,6 +2,7 @@ import express from 'express'
 import dotenv from 'dotenv'
 import cors from 'cors';
 import mongoose from "mongoose";
+import path from "path";
 import {connectDB} from './config/db.js'
 import Participant from './models/participant.model.js';
 
@@ -10,6 +11,7 @@ const app = express();
 app.use(cors()); 
 app.use(express.json())
 const PORT = process.env.PORT || 5000
+const __dirname = path.resolve()
 
 app.get("/", (req,res) => {
     res.send("Server is ready")
@@ -94,7 +96,9 @@ app.patch("/participant/:id", async (req, res) => {
     }
   });
   
-
+if(process.env.NODE_ENV === 'production') {
+    app.use(express.static(path.join(__dirname, '/frontend/dist')))
+}
 app.listen(PORT, () => {
     connectDB()
     console.log('Server started at specified port')
