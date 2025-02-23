@@ -41,7 +41,6 @@ const Quiz = () => {
 
       const data = await response.json();
       console.log("Success:", data);
-      alert("Participant added successfully!");
       navigate("/quiz-question-1");
     } catch (error) {
       console.error("Error:", error);

@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import styles from "./Quiz.module.css";
 
-const QuizQuestion2 = () => {
+const QuizQuestion3 = () => {
   const [answer, setAnswer] = useState("");
   const [showHint, setShowHint] = useState(false);
   const [error, setError] = useState("");
@@ -18,7 +18,7 @@ const QuizQuestion2 = () => {
 
   const handleSubmit = () => {
     if (answer.trim().toLowerCase() === "paris") {
-      navigate("/quiz-question-3"); // Go to question 2
+      navigate("/quiz-question-4"); // Go to question 3
     } else {
       setError("Incorrect answer! Try again.");
     }
@@ -27,7 +27,7 @@ const QuizQuestion2 = () => {
   return (
     <div className={styles.quizContainer}>
       <h2 className={styles.quizTitle}>Question 1</h2>
-      <p className={styles.questionText}>What is the capital of France? 2</p>
+      <p className={styles.questionText}>What is the capital of France? 3</p>
 
       <input
         type="text"
@@ -52,4 +52,4 @@ const QuizQuestion2 = () => {
   );
 };
 
-export default QuizQuestion2;
+export default QuizQuestion3;
