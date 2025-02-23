@@ -18,7 +18,7 @@ const QuizQuestion1 = () => {
 
   const handleSubmit = () => {
     if (answer.trim().toLowerCase() === "paris") {
-      navigate("/quiz2"); // Go to question 2
+      navigate("/quiz-question-2"); // Go to question 2
     } else {
       setError("Incorrect answer! Try again.");
     }
