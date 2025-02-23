@@ -36,11 +36,17 @@ const Quiz = () => {
       });
 
       if (!response.ok) {
-        throw new Error("Failed to submit participant");
+        throw new Error(`Failed to submit participant: ${response.statusText}`);
       }
 
       const data = await response.json();
-      console.log("Success:", data);
+      console.log("API Response:", data);
+      if (!data._id) {
+        throw new Error("Participant ID (_id) is missing from the response");
+      } 
+      localStorage.setItem("participantId", data._id);
+      console.log("Stored participantId:", localStorage.getItem("participantId"));
+
       navigate("/quiz-question-1");
     } catch (error) {
       console.error("Error:", error);

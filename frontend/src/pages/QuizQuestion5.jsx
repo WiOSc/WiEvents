@@ -20,21 +20,30 @@ const QuizQuestion5 = () => {
     if (answer.trim().toLowerCase() === "paris") {
       // Show alert
       alert("All answers have been recorded! Ending event...");
+      const participantId = localStorage.getItem("participantId"); // Retrieve stored ID
+    if (!participantId) {
+      setError("No participant ID found. Please restart the quiz.");
+      return;
+    }
 
       // Get current time
       const endTime = new Date().toISOString();
 
       try {
-        // Send PATCH request to update participant document
-        await fetch("/participant", {
-          method: "PATCH", // Change from POST to PATCH
+        // Send PATCH request to update participant's endTime
+        const response = await fetch(`http://localhost:7000/participant/${participantId}`, { 
+          method: "PATCH",
           headers: {
             "Content-Type": "application/json",
           },
           body: JSON.stringify({ endTime }),
         });
-
-        // Navigate back to home or summary page
+  
+        if (!response.ok) {
+          throw new Error("Failed to update endTime");
+        }
+  
+        // Navigate to home or leaderboard after updating
         navigate("/");
       } catch (error) {
         console.error("Failed to log event end time:", error);
