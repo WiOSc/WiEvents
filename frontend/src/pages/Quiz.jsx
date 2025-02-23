@@ -56,7 +56,7 @@ const Quiz = () => {
 
   return (
     <div className={styles.quizContainer}>
-      <h2 className={styles.quizTitle}>Quiz</h2>
+      <h2 className={styles.quizTitle}>Your time will start as soon as you press on start</h2>
       <form className={styles.quizForm} onSubmit={handleSubmit}>
         <div className={styles.formGroup}>
           <label htmlFor="name" className={styles.formLabel}>
