@@ -16,9 +16,30 @@ const QuizQuestion5 = () => {
     setShowHint(!showHint);
   };
 
-  const handleSubmit = () => {
+  const handleSubmit = async () => {
     if (answer.trim().toLowerCase() === "paris") {
-      navigate("/"); // Go to question 2
+      // Show alert
+      alert("All answers have been recorded! Ending event...");
+
+      // Get current time
+      const endTime = new Date().toISOString();
+
+      try {
+        // Send PATCH request to update participant document
+        await fetch("/participant", {
+          method: "PATCH", // Change from POST to PATCH
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ endTime }),
+        });
+
+        // Navigate back to home or summary page
+        navigate("/");
+      } catch (error) {
+        console.error("Failed to log event end time:", error);
+        setError("Error ending event. Please try again.");
+      }
     } else {
       setError("Incorrect answer! Try again.");
     }
@@ -26,8 +47,8 @@ const QuizQuestion5 = () => {
 
   return (
     <div className={styles.quizContainer}>
-      <h2 className={styles.quizTitle}>Question 1</h2>
-      <p className={styles.questionText}>What is the capital of France? 5</p>
+      <h2 className={styles.quizTitle}>Final Question</h2>
+      <p className={styles.questionText}>What is the capital of France? (Final Question)</p>
 
       <input
         type="text"
