@@ -7,7 +7,7 @@ export default defineConfig({
   server: {
     proxy: {
       "/participant": {
-        target: "http://localhost:7000",
+        target: "https://wievents.onrender.com/",
         changeOrigin: true,
         secure: false,
       }
